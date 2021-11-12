@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:onClick="query"
+            android:textSize="12sp"
+            android:text="查询"
+            android:id="@+id/bt_query"
+            android:layout_width="60dp"
+            android:layout_height="45dp"/>
+
+
+        <Button
+            android:onClick="query2"
+            android:textSize="12sp"
+            android:text="查询"
+            android:id="@+id/bt_query2"
+            android:layout_width="60dp"
+            android:layout_height="45dp"/>
+
+
+        <Button
+            android:onClick="insert"
+            android:textSize="12sp"
+            android:text="插入"
+            android:id="@+id/bt_insert"
+            android:layout_width="60dp"
+            android:layout_height="45dp"/>
+
+
+
+        <Button
+            android:onClick="delete"
+            android:textSize="12sp"
+            android:text="删除"
+            android:id="@+id/bt_delete"
+            android:layout_width="60dp"
+            android:layout_height="45dp"/>
+
+
+
+        <Button
+            android:onClick="clear"
+            android:textSize="12sp"
+            android:text="清除"
+            android:id="@+id/bt_clear"
+            android:layout_width="60dp"
+            android:layout_height="45dp"/>
+
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_alignParentRight="true"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+
+        <Button
+            android:onClick="startLoader"
+            android:textSize="8sp"
+            android:text="开始Loader"
+            android:id="@+id/bt_start_Loader"
+            android:layout_width="80dp"
+            android:layout_height="45dp"/>
+
+        <Button
+            android:onClick="stopLoader"
+            android:textSize="8sp"
+            android:text="暂停Loader"
+            android:id="@+id/bt_stop_Loader"
+            android:layout_width="80dp"
+            android:layout_height="45dp"/>
+
+
+
+
+        <Button
+            android:onClick="restartLoader"
+            android:textSize="8sp"
+            android:text="重新Loader"
+            android:id="@+id/bt_restart_Loader"
+            android:layout_width="80dp"
+            android:layout_height="45dp"/>
+
+
+        <Button
+            android:onClick="reset"
+            android:textSize="8sp"
+            android:text="重置Loader"
+            android:id="@+id/bt_reset"
+            android:layout_width="80dp"
+            android:layout_height="45dp"/>
+
+
+        <Button
+            android:onClick="cancelLoad"
+            android:textSize="8sp"
+            android:text="清除Loader"
+            android:id="@+id/bt_cancel_Loader"
+            android:layout_width="80dp"
+            android:layout_height="45dp"/>
+
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:onClick="baseSpatialQuery"
+            android:textSize="8sp"
+            android:text="sqlist查询"
+            android:id="@+id/bt_base_spatial_query"
+            android:layout_width="80dp"
+            android:layout_height="45dp"/>
+
+        <Button
+            android:layout_marginLeft="25dp"
+            android:onClick="spatialQuery"
+            android:textSize="8sp"
+            android:text="空间查询"
+            android:id="@+id/bt_spatial_query"
+            android:layout_width="80dp"
+            android:layout_height="45dp"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
