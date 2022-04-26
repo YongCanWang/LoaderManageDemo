@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         LoaderManager.getInstance(this).getLoader(1).reset();
     }
 
-    public void cancelLoad() {
+    public void cancelLoad(View view) {
         LoaderManager.getInstance(this).getLoader(1).cancelLoad();
     }
 
