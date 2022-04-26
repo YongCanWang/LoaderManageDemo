@@ -1,4 +1,4 @@
-package com.mapscloud.dtt.loadermanagerdemo;
+package com.mapscloud.dtt.loadermanagerdemo.provider;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -19,8 +19,8 @@ import androidx.annotation.Nullable;
  * @description:
  * @date :2021/10/19 13:26
  */
-public class MyContentProvider extends ContentProvider {
-    private static final String     TAG            = "MyContentProvider";
+public class MyContentProvider2 extends ContentProvider {
+    private static final String     TAG            = "MyContentProvider2";
     private static final String     AUTHORITY      = "com.mapscloud.dtt.loadermanagerdemo";
     private static final String     AUTHORITY_NAME = ".MyContentProvider";
     public static final  Uri        STUDENT_URI    = Uri.parse("content://" + AUTHORITY + AUTHORITY_NAME);
@@ -39,7 +39,7 @@ public class MyContentProvider extends ContentProvider {
         //匹配不成功返回NO_MATCH(-1)
         uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         //添加我们需要匹配的uri
-        uriMatcher.addURI(AUTHORITY + AUTHORITY_NAME, URL_PATH, MATCH_CODE);// 参数1同于： Uri.parse("content://com.mapscloud.dtt.loadermanagerdemo.MyContentProvider");
+        uriMatcher.addURI(AUTHORITY + AUTHORITY_NAME, URL_PATH, MATCH_CODE);
         uriMatcher.addURI(AUTHORITY + AUTHORITY_NAME, URL_PATH2, MATCH_CODE2);
         uriMatcher.addURI(AUTHORITY + AUTHORITY_NAME, URL_PATH3, MATCH_CODE3);
     }
@@ -73,8 +73,7 @@ public class MyContentProvider extends ContentProvider {
                         selection, selectionArgs, null, null, sortOrder);
             case MATCH_CODE2:
                 Log.e(TAG, "匹配URI对象为：" + MATCH_CODE2 + "---" + uri.toString());
-                return readableDatabase.query(Constant.NAVIGATE_POINT_TABLE_NAME, projection,
-                        selection, selectionArgs, null, null, sortOrder);
+                break;
             case MATCH_CODE3:
                 Log.e(TAG, "匹配URI对象为：" + MATCH_CODE3 + "---" + uri.toString());
                 break;
@@ -104,7 +103,7 @@ public class MyContentProvider extends ContentProvider {
             // 匹配成功，执行查询功能
             // 查询成功返回结果 Cursor
             case MATCH_CODE:
-                readableDatabase.insert(Constant.NAVIGATE_POINT_TABLE_NAME, null, values);
+                readableDatabase.insert(Constant.NAVIGATE_POINT_TABLE_NAME,null,  values);
                 break;
             case MATCH_CODE2:
                 break;
@@ -120,9 +119,9 @@ public class MyContentProvider extends ContentProvider {
             // 匹配成功，执行查询功能
             // 查询成功返回结果 Cursor
             case MATCH_CODE:
-                break;
+               return readableDatabase.delete(Constant.NAVIGATE_POINT_TABLE_NAME,selection,  selectionArgs);
             case MATCH_CODE2:
-                return readableDatabase.delete(Constant.NAVIGATE_POINT_TABLE_NAME, selection, selectionArgs);
+                break;
             case MATCH_CODE3:
                 break;
         }

@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoaderManagerDemo">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,12 +18,12 @@
         </activity>
 
         <provider
-            android:name=".MyContentProvider"
+            android:name=".provider.MyContentProvider"
             android:authorities="${applicationId}.MyContentProvider"
             android:exported="true"/>
 
         <provider
-            android:name=".MyContentProvider2"
+            android:name=".provider.MyContentProvider2"
             android:authorities="${applicationId}.MyContentProvider2"
             android:exported="true"/>
 

@@ -1,9 +1,10 @@
-package com.mapscloud.dtt.loadermanagerdemo;
+package com.mapscloud.dtt.loadermanagerdemo.loader;
 
 import android.content.Context;
 import android.database.Cursor;
 
 import com.mapscloud.dtt.loadermanagerdemo.bean.Constant;
+import com.mapscloud.dtt.loadermanagerdemo.provider.MyContentProvider;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

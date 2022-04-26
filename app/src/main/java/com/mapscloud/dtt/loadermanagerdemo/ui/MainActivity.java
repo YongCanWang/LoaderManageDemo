@@ -1,4 +1,4 @@
-package com.mapscloud.dtt.loadermanagerdemo;
+package com.mapscloud.dtt.loadermanagerdemo.ui;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -8,9 +8,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.mapscloud.dtt.loadermanagerdemo.R;
 import com.mapscloud.dtt.loadermanagerdemo.bean.Constant;
 import com.mapscloud.dtt.loadermanagerdemo.bean.CustomPoint;
 import com.mapscloud.dtt.loadermanagerdemo.db.NaviPOI;
+import com.mapscloud.dtt.loadermanagerdemo.loader.POILoader;
+import com.mapscloud.dtt.loadermanagerdemo.provider.MyContentProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +24,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>, Loader.OnLoadCanceledListener, Loader.OnLoadCompleteListener<Object> {
+public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>,
+        Loader.OnLoadCanceledListener, Loader.OnLoadCompleteListener<Object> {
     private              String   TAG        = "MainActivity";
     private static final String[] PROJECTION = new String[]{"_id", "text_column"};
 
@@ -129,7 +133,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
     public void insert(View view) {
-
         NaviPOI naviPOI = new NaviPOI();
         naviPOI.setCn("当前位置");
         naviPOI.setLat(10001);
@@ -166,7 +169,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         String[] selectArgs = new String[]{"10002.0", "10001.0"}; // 参数三占位符
         int delete = getContentResolver().delete(build, selection, selectArgs);
         Log.e(TAG, "delete:" + delete);
-
     }
 
     public void clear(View view) {
