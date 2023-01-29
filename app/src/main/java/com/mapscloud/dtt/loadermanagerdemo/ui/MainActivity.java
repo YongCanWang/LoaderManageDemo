@@ -1,12 +1,21 @@
 package com.mapscloud.dtt.loadermanagerdemo.ui;
 
+import android.content.ComponentName;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
 
 import com.mapscloud.dtt.loadermanagerdemo.R;
 import com.mapscloud.dtt.loadermanagerdemo.bean.Constant;
@@ -18,15 +27,9 @@ import com.mapscloud.dtt.loadermanagerdemo.provider.MyContentProvider;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.Loader;
-
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>,
         Loader.OnLoadCanceledListener, Loader.OnLoadCompleteListener<Object> {
-    private              String   TAG        = "MainActivity";
+    private String TAG = "MainActivity";
     private static final String[] PROJECTION = new String[]{"_id", "text_column"};
 
     @Override
@@ -210,5 +213,36 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onLoadComplete(@NonNull Loader<Object> loader, @Nullable Object data) {
         Log.e(TAG, "onLoadComplete：" + loader.getId());
+    }
+
+
+    public void goApp(View view) {
+        try {
+            ComponentName componentName = new ComponentName("com.jnt.asr", "com.jnt.asr.ui.appinfo.AppDetailActivity");//这里是 包名  以及 页面类的全称
+            Intent intent = new Intent();
+            intent.setComponent(componentName);
+            intent.putExtra("appId", 1513414218161442818l);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(this, "去下载吧", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    public void goAppStore(View view) {
+        try {
+            ComponentName componentName = new ComponentName("com.jnt.asr", "com.jnt.asr.ui.appinfo.AppDetailActivity");
+            Intent intent = new Intent();
+            intent.setComponent(componentName);
+            //openType:third 固定值不用变
+            intent.putExtra("openType", "third");
+            //packName:想要打开的第三方应用的包名
+            intent.putExtra("packName", "com.mapscloud.tt.dqt.repository");
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(this, "去下载吧", Toast.LENGTH_SHORT).show();
+        }
     }
 }
