@@ -22,6 +22,7 @@ import com.mapscloud.dtt.loadermanagerdemo.bean.Constant;
 import com.mapscloud.dtt.loadermanagerdemo.bean.CustomPoint;
 import com.mapscloud.dtt.loadermanagerdemo.db.NaviPOI;
 import com.mapscloud.dtt.loadermanagerdemo.loader.POILoader;
+import com.mapscloud.dtt.loadermanagerdemo.loader.POILoader2;
 import com.mapscloud.dtt.loadermanagerdemo.provider.MyContentProvider;
 
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
         Log.e(TAG, "onCreateLoader:id = " + id);
-        return new POILoader(this);
+        return new POILoader2(this);
     }
 
     @Override
